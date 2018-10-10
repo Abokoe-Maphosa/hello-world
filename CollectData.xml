@@ -1,0 +1,74 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Paiting Project</h:title>
+    <model>
+      <instance>
+        <data id="build_Untitled-Form_1537261416">
+          <meta>
+            <instanceID/>
+          </meta>
+          <school_name/>
+          <classes/>
+          <classrooms/>
+          <condition/>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/school_name:label">
+            <value>School Name</value>
+          </text>
+          <text id="/data/classes:label">
+            <value>No of Classes</value>
+          </text>
+          <text id="/data/classrooms:label">
+            <value>No of Classrooms</value>
+          </text>
+          <text id="/data/condition:label">
+            <value>Average Condition</value>
+          </text>
+          <text id="/data/condition:option0">
+            <value>Not painted</value>
+          </text>
+          <text id="/data/condition:option1">
+            <value>Painted</value>
+          </text>
+          <text id="/data/condition:option2">
+            <value>Old Paint</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/school_name" type="string" required="true()"/>
+      <bind nodeset="/data/classes" type="int" required="true()"/>
+      <bind nodeset="/data/classrooms" type="int" required="true()"/>
+      <bind nodeset="/data/condition" type="select1" required="true()"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/school_name">
+      <label ref="jr:itext('/data/school_name:label')"/>
+    </input>
+    <input ref="/data/classes">
+      <label ref="jr:itext('/data/classes:label')"/>
+    </input>
+    <input ref="/data/classrooms">
+      <label ref="jr:itext('/data/classrooms:label')"/>
+    </input>
+    <select1 ref="/data/condition">
+      <label ref="jr:itext('/data/condition:label')"/>
+      <item>
+        <label ref="jr:itext('/data/condition:option0')"/>
+        <value>no_paint</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/condition:option1')"/>
+        <value>painted</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/condition:option2')"/>
+        <value>old_paint</value>
+      </item>
+    </select1>
+  </h:body>
+</h:html>
